@@ -1,2 +1,5 @@
 #!/bin/sh
-cat "$1".part* > "$1"
+while read f; do
+    echo $f
+    cat "$f".part* > "$f"
+done <vsix.lst

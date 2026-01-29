@@ -1,2 +1,6 @@
 #!/bin/sh
-split --bytes=5M "$1" "$1.part"
+: > vsix.lst
+for f in *.vsix; do
+    echo $f | tee --append vsix.lst
+    split --bytes=5M "$f" "$f.part"
+done
